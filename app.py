@@ -366,8 +366,36 @@ def process_user_turn(user_text: str) -> None:
                     result = search_products(products_df, **args)
                     tool_content = json.dumps(to_records(result), ensure_ascii=False)
                 elif name == "present_menu_options":
-                    final_panel = {"type": "menu_options", "data": args}
-                    tool_content = json.dumps({"status": "rendered"}, ensure_ascii=False)
+                    menus = args.get("menus", [])
+                    verified_menus = []
+                    rejected_menus = []
+                    for menu in menus:
+                        menu_name = menu.get("name", "")
+                        available = search_menu_products(products_df, menu_name=menu_name, limit=1)
+                        if not available.empty:
+                            verified_menus.append(menu)
+                        else:
+                            rejected_menus.append(menu_name)
+                    if verified_menus:
+                        args["menus"] = verified_menus
+                        final_panel = {"type": "menu_options", "data": args}
+                        tool_content = json.dumps(
+                            {"status": "rendered", "rejected_no_products": rejected_menus},
+                            ensure_ascii=False,
+                        )
+                    else:
+                        tool_content = json.dumps(
+                            {
+                                "status": "rejected",
+                                "reason": "제시한 메뉴 모두 실제 판매 상품이 없어 화면에 표시하지 않았습니다.",
+                                "rejected_no_products": rejected_menus,
+                                "instruction": (
+                                    "허용된 20개 메뉴 목록 중 실제 상품이 있는 다른 메뉴로 후보를 "
+                                    "다시 구성해 present_menu_options를 다시 호출하세요."
+                                ),
+                            },
+                            ensure_ascii=False,
+                        )
                 elif name == "present_recommendation":
                     final_panel = normalize_panel({"type": "recommendation", "data": args})
                     tool_content = json.dumps({"status": "rendered"}, ensure_ascii=False)
@@ -456,7 +484,7 @@ def render_menu_options(data: dict[str, Any]) -> None:
             unsafe_allow_html=True,
         )
         if st.button(f'{menu.get("name", "메뉴")} 선택', key=f'menu_select_{index}', use_container_width=True):
-            process_user_turn(f'메뉴로 {menu.get("name", "")}을 선택할게. 이 메뉴의 실제 레시피 재료를 상품 데이터에서 찾아 장바구니 구성을 보여줘.')
+            process_user_turn(f'메뉴로 {menu.get("name", "")}을 선택할게.')
             st.rerun()
 
     st.markdown('</div>', unsafe_allow_html=True)
