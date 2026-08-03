@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>한끼마켓</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="utility-bar">
+      <div class="container utility-inner">
+        <p>신선한 장보기, 메뉴 고민까지 한 번에</p>
+        <nav aria-label="유틸리티 메뉴">
+          <a href="#">로그인</a>
+          <a href="#">회원가입</a>
+          <a href="#">고객센터</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container header-main">
+      <a href="#" class="brand" aria-label="한끼마켓 홈">
+        <span class="brand-mark">한</span>
+        <span class="brand-text">
+          <strong>한끼마켓</strong>
+          <small>AI SMART GROCERY</small>
+        </span>
+      </a>
+
+      <form class="search" role="search">
+        <label class="sr-only" for="search-input">상품 검색</label>
+        <input id="search-input" type="search" placeholder="상품이나 메뉴를 검색해보세요" />
+        <button type="submit" aria-label="검색">⌕</button>
+      </form>
+
+      <div class="header-actions">
+        <a href="#" class="header-action">
+          <span class="action-icon">♡</span>
+          <span>찜</span>
+        </a>
+        <a href="#" class="header-action cart-link">
+          <span class="action-icon">🛒</span>
+          <span>장바구니</span>
+          <span class="cart-count">3</span>
+        </a>
+      </div>
+    </div>
+
+    <nav class="category-nav" aria-label="상품 카테고리">
+      <div class="container category-inner">
+        <a class="all-category" href="#">☰ 전체 카테고리</a>
+        <a href="#">신상품</a>
+        <a href="#">베스트</a>
+        <a href="#">채소</a>
+        <a href="#">과일</a>
+        <a href="#">정육·수산</a>
+        <a href="#">간편식</a>
+        <a href="#">음료</a>
+        <a href="#">주류</a>
+        <a href="#">홈파티</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero banner-hero">
+      <div class="container banner-only">
+        <a href="#products" class="hero-banner-link" aria-label="주말 장보기 최대 40% 할인 행사 상품 보기">
+          <img class="hero-banner-image" src="banner_event.png" alt="주말 장보기 최대 40% 할인, 홈파티·캠핑·가족 식사 인기 상품 행사 배너" />
+        </a>
+      </div>
+    </section>
+
+    <section class="quick-categories">
+      <div class="container">
+        <div class="section-heading compact">
+          <div>
+            <span class="section-kicker">빠른 장보기</span>
+            <h2>카테고리로 찾아보세요</h2>
+          </div>
+        </div>
+        <div class="category-cards">
+          <a href="#" class="category-card"><span>🥬</span><strong>채소</strong><small>신선한 제철 채소</small></a>
+          <a href="#" class="category-card"><span>🍎</span><strong>과일</strong><small>간식과 디저트</small></a>
+          <a href="#" class="category-card"><span>🥩</span><strong>정육</strong><small>구이와 홈파티</small></a>
+          <a href="#" class="category-card"><span>🍱</span><strong>간편식</strong><small>빠르고 간편하게</small></a>
+          <a href="#" class="category-card"><span>🥤</span><strong>음료</strong><small>탄산·주스·커피</small></a>
+          <a href="#" class="category-card"><span>🍷</span><strong>주류</strong><small>성인 전용 상품</small></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="product-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">오늘의 추천</span>
+            <h2>한끼마켓 인기 상품</h2>
+            <p>장보기 상담에서 자주 추천되는 상품입니다.</p>
+          </div>
+          <a href="#" class="text-link">전체 보기 →</a>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-image meat">
+              <span class="badge">베스트</span>
+              <button class="heart" type="button" aria-label="찜하기">♡</button>
+              <span class="product-emoji">🥩</span>
+            </div>
+            <div class="product-info">
+              <small>정육 · 새벽배송</small>
+              <h3>홈파티 스테이크용 소고기</h3>
+              <p class="product-volume">300g</p>
+              <div class="price-line"><strong>12,900원</strong><span>4.8 ★</span></div>
+              <button class="cart-button" type="button">장바구니 담기</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image pasta">
+              <span class="badge badge-light">추천</span>
+              <button class="heart" type="button" aria-label="찜하기">♡</button>
+              <span class="product-emoji">🍝</span>
+            </div>
+            <div class="product-info">
+              <small>면류 · 당일배송</small>
+              <h3>듀럼밀 스파게티면</h3>
+              <p class="product-volume">500g</p>
+              <div class="price-line"><strong>3,900원</strong><span>4.7 ★</span></div>
+              <button class="cart-button" type="button">장바구니 담기</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image vegetable">
+              <span class="badge badge-light">신선</span>
+              <button class="heart" type="button" aria-label="찜하기">♡</button>
+              <span class="product-emoji">🥗</span>
+            </div>
+            <div class="product-info">
+              <small>채소 · 새벽배송</small>
+              <h3>패밀리 샐러드 채소 믹스</h3>
+              <p class="product-volume">200g</p>
+              <div class="price-line"><strong>4,900원</strong><span>4.9 ★</span></div>
+              <button class="cart-button" type="button">장바구니 담기</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image drink">
+              <span class="badge badge-light">묶음</span>
+              <button class="heart" type="button" aria-label="찜하기">♡</button>
+              <span class="product-emoji">🥤</span>
+            </div>
+            <div class="product-info">
+              <small>음료 · 일반배송</small>
+              <h3>제로 콜라 패밀리팩</h3>
+              <p class="product-volume">355ml × 6입</p>
+              <div class="price-line"><strong>5,900원</strong><span>4.6 ★</span></div>
+              <button class="cart-button" type="button">장바구니 담기</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ai-banner">
+      <div class="container ai-banner-inner">
+        <div>
+          <span class="section-kicker">메뉴가 정해지지 않았나요?</span>
+          <h2>AI 장보기 도우미에게 물어보세요</h2>
+          <p>식사 상황과 인원, 예산을 바탕으로 메뉴와 상품을 추천합니다.</p>
+        </div>
+        <button class="button button-white" type="button" data-chatbot-open>지금 상담 시작</button>
+      </div>
+    </section>
+
+    <section class="prototype-notice">
+      <div class="container">
+        <p>
+          본 서비스는 테스트 상품 데이터를 활용한 포트폴리오용 프로토타입입니다.
+          표시된 상품·가격·재고·배송 정보는 실제 판매 정보가 아니며 실제 주문과 결제는 지원하지 않습니다.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>한끼마켓</strong>
+        <p>AI가 메뉴부터 장바구니까지 연결하는 스마트 장보기 프로토타입</p>
+      </div>
+      <nav>
+        <a href="#">서비스 소개</a>
+        <a href="#">이용 안내</a>
+        <a href="#">개인정보 처리방침</a>
+      </nav>
+    </div>
+  </footer>
+
+  <button class="chatbot-fab" type="button" aria-label="AI 장보기 도우미 열기" data-chatbot-open>
+    <span class="chatbot-icon">💬</span>
+    <span class="chatbot-label">
+      <small>메뉴가 고민이라면</small>
+      <strong>AI 장보기 도우미</strong>
+    </span>
+  </button>
+
+  <div id="chatbot-panel" class="chatbot-panel" hidden>
+    <div class="chatbot-panel-header">
+      <span>🛒 AI 장보기 도우미</span>
+      <button type="button" class="chatbot-panel-close" aria-label="챗봇 닫기">×</button>
+    </div>
+    <iframe
+      class="chatbot-frame"
+      title="AI 장보기 챗봇"
+      data-src="http://localhost:8501/?embed=true"
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
